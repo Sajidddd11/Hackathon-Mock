@@ -21,12 +21,20 @@ router.post('/', (req, res) => {
       });
     }
     
-    // Create book
-    const bookData = { title, author, isbn };
-    const book = database.createBook(bookData);
+    // Create book with specific ID
+    const book = {
+      book_id: book_id,
+      title: title,
+      author: author,
+      isbn: isbn,
+      is_available: true,
+      category: "General",
+      published_date: new Date().toISOString().split('T')[0],
+      rating: 0.0,
+      borrowing_count: 0,
+      created_at: new Date().toISOString()
+    };
     
-    // Update the book_id to match the request
-    book.book_id = book_id;
     database.data.books.set(book_id, book);
     
     res.status(200).json({

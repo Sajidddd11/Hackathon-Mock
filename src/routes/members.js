@@ -29,12 +29,16 @@ router.post('/', (req, res) => {
       });
     }
     
-    // Create member
-    const memberData = { name, age };
-    const member = database.createMember(memberData);
+    // Create member with specific ID
+    const member = {
+      member_id: member_id,
+      name: name,
+      age: age,
+      has_borrowed: false,
+      created_at: new Date().toISOString(),
+      membership_tier: "standard"
+    };
     
-    // Update the member_id to match the request
-    member.member_id = member_id;
     database.data.members.set(member_id, member);
     
     res.status(200).json({
