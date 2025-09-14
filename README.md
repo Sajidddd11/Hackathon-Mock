@@ -156,4 +156,4 @@ Response:
 
 ## License
 
-MIT License - Built for HackTheAI Preliminary Round
+MIT License - Built for HackTheAI Preliminary Round by Team Ginger
