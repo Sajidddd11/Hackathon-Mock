@@ -1,0 +1,727 @@
+{
+	"info": {
+		"_postman_id": "library-management-api",
+		"name": "Library Management API - HackTheAI",
+		"description": "Complete collection for testing all 15 endpoints of the Library Management System API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/health",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"health"
+							]
+						},
+						"description": "Check if the API is running and healthy"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Member Management",
+			"item": [
+				{
+					"name": "Q1: Create Member",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"member_id\": 1,\n  \"name\": \"Alice\",\n  \"age\": 22\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/members",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"members"
+							]
+						},
+						"description": "Create a new library member"
+					},
+					"response": []
+				},
+				{
+					"name": "Q2: Get Member Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/members/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"members",
+								"1"
+							]
+						},
+						"description": "Get information about a specific member"
+					},
+					"response": []
+				},
+				{
+					"name": "Q3: List All Members",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/members",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"members"
+							]
+						},
+						"description": "Get a list of all library members"
+					},
+					"response": []
+				},
+				{
+					"name": "Q4: Update Member Info",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Alice Smith\",\n  \"age\": 25\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/members/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"members",
+								"1"
+							]
+						},
+						"description": "Update member information"
+					},
+					"response": []
+				},
+				{
+					"name": "Q8: Get Borrowing History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/members/1/history",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"members",
+								"1",
+								"history"
+							]
+						},
+						"description": "Get borrowing history for a specific member"
+					},
+					"response": []
+				},
+				{
+					"name": "Q9: Delete Member",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/members/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"members",
+								"1"
+							]
+						},
+						"description": "Delete a member from the library system"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book Management",
+			"item": [
+				{
+					"name": "Q11: Add Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"book_id\": 201,\n  \"title\": \"The Hobbit\",\n  \"author\": \"J.R.R. Tolkien\",\n  \"isbn\": \"978-0547928227\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/books",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						},
+						"description": "Add a new book to the library catalog"
+					},
+					"response": []
+				},
+				{
+					"name": "Q12: Get Book Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/books/201",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"201"
+							]
+						},
+						"description": "Get information about a specific book"
+					},
+					"response": []
+				},
+				{
+					"name": "Q15: Delete Book",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/books/201",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"201"
+							]
+						},
+						"description": "Delete a book from the library catalog"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Borrowing System",
+			"item": [
+				{
+					"name": "Q5: Borrow Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"member_id\": 1,\n  \"book_id\": 101\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/borrow",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"borrow"
+							]
+						},
+						"description": "Borrow a book from the library"
+					},
+					"response": []
+				},
+				{
+					"name": "Q6: Return Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"member_id\": 1,\n  \"book_id\": 101\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/return",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"return"
+							]
+						},
+						"description": "Return a borrowed book"
+					},
+					"response": []
+				},
+				{
+					"name": "Q7: List Borrowed Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/borrowed",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"borrowed"
+							]
+						},
+						"description": "Get all currently borrowed books"
+					},
+					"response": []
+				},
+				{
+					"name": "Q10: Get Overdue Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/overdue",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"overdue"
+							]
+						},
+						"description": "Get all overdue books"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Advanced Features",
+			"item": [
+				{
+					"name": "Q13: Advanced Book Search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/books/search?q=fantasy&category=fiction&min_rating=4.0&sort_by=popularity&include_analytics=true&page=1&limit=20",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "fantasy",
+									"description": "Search query"
+								},
+								{
+									"key": "category",
+									"value": "fiction",
+									"description": "Book category filter"
+								},
+								{
+									"key": "min_rating",
+									"value": "4.0",
+									"description": "Minimum rating filter"
+								},
+								{
+									"key": "sort_by",
+									"value": "popularity",
+									"description": "Sort by field"
+								},
+								{
+									"key": "include_analytics",
+									"value": "true",
+									"description": "Include analytics data"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Page number"
+								},
+								{
+									"key": "limit",
+									"value": "20",
+									"description": "Results per page"
+								}
+							]
+						},
+						"description": "Advanced book search with complex filtering, pagination, and analytics"
+					},
+					"response": []
+				},
+				{
+					"name": "Q14: Create Reservation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"member_id\": 1,\n  \"book_id\": 201,\n  \"reservation_type\": \"standard\",\n  \"preferred_pickup_date\": \"2025-09-20T10:00:00Z\",\n  \"max_wait_days\": 14,\n  \"notification_preferences\": {\n    \"email\": true,\n    \"sms\": false,\n    \"push\": true\n  },\n  \"special_requests\": {\n    \"academic_priority\": true,\n    \"accessibility_needs\": false,\n    \"language_preference\": \"en\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/reservations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"reservations"
+							]
+						},
+						"description": "Create a book reservation with priority queue system"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reservation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/reservations/{{reservation_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"reservations",
+								"{{reservation_id}}"
+							]
+						},
+						"description": "Get reservation details by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Reservation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/reservations/{{reservation_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"reservations",
+								"{{reservation_id}}"
+							]
+						},
+						"description": "Cancel a reservation"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Error Testing",
+			"item": [
+				{
+					"name": "Invalid Age (400)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"member_id\": 999,\n  \"name\": \"Test User\",\n  \"age\": 10\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/members",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"members"
+							]
+						},
+						"description": "Test validation error for invalid age"
+					},
+					"response": []
+				},
+				{
+					"name": "Non-existent Member (404)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/members/99999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"members",
+								"99999"
+							]
+						},
+						"description": "Test 404 error for non-existent member"
+					},
+					"response": []
+				},
+				{
+					"name": "Borrow Non-existent Book (404)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"member_id\": 1,\n  \"book_id\": 99999\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/borrow",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"borrow"
+							]
+						},
+						"description": "Test 404 error for non-existent book"
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate Member (400)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"member_id\": 1,\n  \"name\": \"Duplicate User\",\n  \"age\": 25\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/members",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"members"
+							]
+						},
+						"description": "Test 400 error for duplicate member ID"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Performance Testing",
+			"item": [
+				{
+					"name": "Quick Search Test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/books/search?q=test&limit=5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "test"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Quick search test for performance"
+					},
+					"response": []
+				},
+				{
+					"name": "Complex Search Test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/books/search?q=fantasy&category=fiction&min_rating=4.0&max_rating=5.0&published_after=1900-01-01&published_before=2023-12-31&sort_by=popularity&sort_order=desc&page=1&limit=50&include_analytics=true&member_preferences=true&borrowing_trends=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "fantasy"
+								},
+								{
+									"key": "category",
+									"value": "fiction"
+								},
+								{
+									"key": "min_rating",
+									"value": "4.0"
+								},
+								{
+									"key": "max_rating",
+									"value": "5.0"
+								},
+								{
+									"key": "published_after",
+									"value": "1900-01-01"
+								},
+								{
+									"key": "published_before",
+									"value": "2023-12-31"
+								},
+								{
+									"key": "sort_by",
+									"value": "popularity"
+								},
+								{
+									"key": "sort_order",
+									"value": "desc"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "50"
+								},
+								{
+									"key": "include_analytics",
+									"value": "true"
+								},
+								{
+									"key": "member_preferences",
+									"value": "true"
+								},
+								{
+									"key": "borrowing_trends",
+									"value": "true"
+								}
+							]
+						},
+						"description": "Complex search test with all parameters"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "reservation_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
